@@ -12,11 +12,11 @@ architecture test_bench of full_adder_tb is
 	-- Component Declaration	
     component full_adder is
         port (
-            i_A     : in std_logic;
-            i_B     : in std_logic;
-            i_Cin   : in std_logic;
-            o_S     : out std_logic;
-            o_Cout  : out std_logic
+            A     : in std_logic;
+            B     : in std_logic;
+            Cin   : in std_logic;
+            S     : out std_logic;
+            Cout  : out std_logic
             );
         end component full_adder;	
 
@@ -27,13 +27,13 @@ architecture test_bench of full_adder_tb is
     
 begin
 	-- PORT MAPS ----------------------------------------
-   fullAdder_uut: full_adder
+   full_adder_uut: full_adder
     port map(
-        i_A     => w_in(1),
-        i_B     => w_in(0),
-        i_Cin   => w_in(2),
-        o_S     => w_out(0),
-        o_Cout  => w_out(1)
+        A     => w_in(1),
+        B     => w_in(0),
+        Cin   => w_in(2),
+        S     => w_out(0),
+        Cout  => w_out(1)
     );
 
 	-----------------------------------------------------
