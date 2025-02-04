@@ -2,6 +2,19 @@
 --| 
 --| DESCRIPTION   : This file implements the top level module for a BASYS 
 --|
+--|     Ripple-Carry Adder: S = A + B
+--|
+--|     Our **user** will input the following:
+--|
+--|     - $C_{in}$ on switch 0
+--|     - $A$ on switches 4-1
+--|     - $B$ on switches 15-12
+--|
+--|     Our **user** will expect the following outputs:
+--|
+--|     - $Sum$ on LED 3-0
+--|     - $C_{out} on LED 15
+--|
 --+----------------------------------------------------------------------------
 --|
 --| NAMING CONVENSIONS :
@@ -24,15 +37,6 @@
 --|    s_<signal name>          = state name
 --|
 --+----------------------------------------------------------------------------
---|
---|     Ripple-Carry Adder: Sum = A + B
---|         A is 4-bit on sw(4 downto 1)
---|         B is 4-bit on sw(8 downto 5)
---|         Cin is 1-bit on sw(0)
---|         Sum is 4-bit on led(3 downto 0)
---|         Cout is 1-bit on led(15)
---|
---+----------------------------------------------------------------------------
 
 library ieee;
   use ieee.std_logic_1164.all;
@@ -42,7 +46,7 @@ library ieee;
 entity top_basys3 is
 	port(
 		-- Switches
-		sw		:	in  std_logic_vector(8 downto 0);
+		sw		:	in  std_logic_vector(15 downto 0);
 		
 		-- LEDs
 		led	    :	out	std_logic_vector(15 downto 0)
@@ -53,7 +57,7 @@ architecture top_basys3_arch of top_basys3 is
 	
     -- declare the component of your top-level design
 
-  -- declare any signals you will need	
+    -- declare any signals you will need	
   
 begin
 	-- PORT MAPS --------------------
@@ -61,7 +65,6 @@ begin
 	---------------------------------
 	
 	-- CONCURRENT STATEMENTS --------
-	-- TODO: w_A, w_B, led(3 downto 0)
 	led(14 downto 4) <= (others => '0'); -- Ground unused LEDs
 	---------------------------------
 end top_basys3_arch;
