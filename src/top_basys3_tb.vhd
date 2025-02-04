@@ -58,35 +58,46 @@ architecture test_bench of top_basys3_tb is
 	
   -- declare the component of your top-level design unit under test (UUT)
   component top_basys3 is
-      port(
-          -- TODO
-      );
-  end component;
+	port(
+		-- Switches
+		sw		:	in  std_logic_vector(8 downto 0);
+		
+		-- LEDs
+		led	    :	out	std_logic_vector(15 downto 0)
+	);
+	end component top_basys3;
   
  
 	-- declare signals needed to stimulate the UUT inputs
-	   -- TODO
-	-- finish declaring needed signals
+	signal w_sw    : std_logic_vector(7 downto 0) := x"00";
+	signal w_sum   : std_logic_vector(3 downto 0) := x"0";
+	signal w_Cin, w_Cout : std_logic;
+	signal w_other_led : std_logic_vector(10 downto 0);
+
 begin
 	-- PORT MAPS ----------------------------------------
-	-- You must create the port map for your top_basys3.
-	-- Look at your old test benches if you are unsure what to do
-	-----------------------------------------------------
-	top_basys3_inst : top_basys3 port map (
-	   sw => w_sw,
-	   led => w_led
+	top_basys3_uut : top_basys3 port map (
+	   sw(8 downto 1)  => w_sw,
+	   sw(0)           => w_Cin, 
+	   led(3 downto 0) => w_sum,
+	   led(15)         => w_Cout,
+	   led(14 downto 4) => w_other_led
 	);
+	
 	-- PROCESSES ----------------------------------------	
 	-- Test Plan Process
 	-- Implement the test plan here.  Body of process is continuously from time = 0  
 	test_process : process 
 	begin
 	
-	    w_sw <= o"0"; wait for 10 ns;
-		assert w_led = "00" report "bad o0" severity failure;
-            w_sw <= o"1"; wait for 10 ns;
-            	assert w_led = "01" report "bad o1" severity failure;
-	    --You must fill in the remaining test cases.	
+	   -- Test all zeros input
+	   w_sw <= x"00"; w_Cin <= '0'; wait for 10 ns;
+	       assert (w_sum = x"0" and w_Cout = '0') report "bad with zeros" severity failure;
+       -- Test all ones input
+       -- TODO
+	   
+	   -- A few other test cases
+	   -- TODO 	
 	
 		wait; -- wait forever
 	end process;	

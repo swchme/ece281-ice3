@@ -1,12 +1,12 @@
-# ECE 281 ICE 3: FullAdder with Top Level Design
+# ECE 281 ICE 3: Ripple-Carry Adder with Top Level Design
 
-**Fork** this repo.
+This is a **template** repository.
 
 [ICE 3 instructions](https://usafa-ece.github.io/ece281-book/ICE/ICE3.html)
 
 Targeted toward Digilent Basys3. Make sure to install the [board files](https://github.com/Xilinx/XilinxBoardStore/tree/2018.2/boards/Digilent/basys3).
 
-Tested on Vivado 2018.2.
+Tested on Vivado 2024.2
 
 ---
 
