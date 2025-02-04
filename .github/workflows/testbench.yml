@@ -1,6 +1,6 @@
 ---
 env:
-  TB_ENTITY: top_basys3_tb
+  TB_ENTITY: ripple_adder_tb
 
 name: GHDL Testbench
 on: [push]
