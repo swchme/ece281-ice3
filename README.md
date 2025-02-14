@@ -28,3 +28,12 @@ Then it **elaborates** the entity defined by `$TB_ENTITY`
 Finally, the workflow **runs** the simulation. If successful then it will quietly exit with a `0` code.
 If any of the `assert` statements fail then GHDL will cease the simulation and exit with non-zero code; this will also cause the workflow to fail.
 Assert statements of other severity levels will be reported, but not fail the workflow.
+![
+    
+
+]({C5BB12DD-5B76-4C04-8CB8-D433AD0D0470}-1.png)
+![alt text]({9024B4E9-0AF5-4458-8E03-4C27B4743E01}-1.png)
+image is in the same folder 
+
+
+
