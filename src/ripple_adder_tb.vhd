@@ -49,6 +49,18 @@ begin
        w_addends <= x"FF"; w_Cin <= '1'; wait for 10 ns;
 	       assert (w_sum = x"F" and w_Cout = '1') report "bad with ones" severity failure;
        -- TODO, a few other test cases
+       
+       
+       
+       
+       w_addends <= x"01"; w_Cin <= '1'; wait for 10 ns;
+            assert (w_sum = x"02" and w_Cout = '0') report "bad with 01 and Cin=1" severity failure;
+    
+       w_addends <= x"FE"; w_Cin <= '1'; wait for 10 ns;
+            assert (w_sum = x"FF" and w_Cout = '0') report "bad with FE and Cin=1" severity failure;
+               
+	
+	
 	
 		wait; -- wait forever
 	end process;	
